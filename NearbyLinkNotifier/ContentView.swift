@@ -13,13 +13,18 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(links, id: \.link) { link in
-                    VStack(alignment: .leading) {
-                        Text(link.link)
-                            .font(.headline)
-                        if let location = link.location, let lat = location["lat"], let lng = location["lng"] {
-                            Text("Lat: \(lat), Lng: \(lng)")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
+                    Button(action: {
+                        openLink(link.link) // Open link in Safari when clicked
+                    }) {
+                        VStack(alignment: .leading) {
+                            Text(link.link)
+                                .font(.headline)
+                                .foregroundColor(.blue) // Indicate it is clickable
+                            if let location = link.location, let lat = location["lat"], let lng = location["lng"] {
+                                Text("Lat: \(lat), Lng: \(lng)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
                         }
                     }
                 }
@@ -31,6 +36,15 @@ struct ContentView: View {
                 Alert(title: Text("Error"), message: Text(error.message), dismissButton: .default(Text("OK")))
             }
         }
+    }
+
+    // Open the link in Safari
+    func openLink(_ urlString: String) {
+        guard let url = URL(string: urlString) else {
+            self.errorMessage = ErrorMessage(message: "Invalid URL: \(urlString)")
+            return
+        }
+        UIApplication.shared.open(url)
     }
 
     func fetchLinks() {
