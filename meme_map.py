@@ -45,18 +45,21 @@ def is_valid_url(url):
     return validators.url(url)
 
 
-def add_or_update_link(collection, link, location):
+def add_or_update_link(collection, link, location, description):
     """
-    Add a new link and location to the database or update the location of an existing link.
+    Add a new link, location, and description to the database or update the location and description of an existing link.
     """
     existing_entry = collection.find_one({"link": link})
     if existing_entry:
-        # Update the location of the existing link
-        collection.update_one({"link": link}, {"$set": {"location": location}})
+        # Update the location and description of the existing link
+        collection.update_one(
+            {"link": link}, 
+            {"$set": {"location": location, "description": description}}
+        )
         return "updated"
     else:
-        # Insert a new link
-        collection.insert_one({"link": link, "location": location})
+        # Insert a new link with location and description
+        collection.insert_one({"link": link, "location": location, "description": description})
         return "added"
 
 
@@ -87,19 +90,22 @@ def main():
         st.error("Please enter a valid URL.")
         return
 
+    # Input for description
+    description = st.text_input("Enter a description for the link", placeholder="Brief description of the link")
+
     # Input for street address
     st.subheader("Enter a Street Address")
     address = st.text_input("Street Address (e.g., '1600 Amphitheatre Parkway, Mountain View, CA')")
 
     if st.button("Save or Update Location"):
-        if address.strip() and link.strip():
+        if address.strip() and link.strip() and description.strip():
             # Geocode the address
             lat, lon = geocode_address(address)
             if lat is not None and lon is not None:
                 st.session_state.map_location = {"lat": lat, "lng": lon}
                 location = st.session_state.map_location
-                # Save or update the link with the geocoded location
-                action = add_or_update_link(collection, link, location)
+                # Save or update the link with the geocoded location and description
+                action = add_or_update_link(collection, link, location, description)
                 if action == "updated":
                     st.success(f"Link updated: {link} now at Latitude={location['lat']}, Longitude={location['lng']}")
                 else:
@@ -107,7 +113,7 @@ def main():
             else:
                 st.error("Could not find the address. Please try a different one.")
         else:
-            st.error("Please enter both an address and a valid link.")
+            st.error("Please enter an address, a valid link, and a description.")
 
     # Display all links on the map
     st.subheader("Interactive Map of Links")
@@ -124,9 +130,10 @@ def main():
     for item in all_links:
         link = item["link"]
         location = item["location"]
+        description = item.get("description", "No description provided")
         Marker(
             [location["lat"], location["lng"]],
-            popup=f'<a href="{link}" target="_blank">{link}</a>',
+            popup=f'<b>{description}</b><br><a href="{link}" target="_blank">{link}</a>',
             tooltip=link,
         ).add_to(marker_cluster)
 
