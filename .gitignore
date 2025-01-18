@@ -1,0 +1,11 @@
+/DerivedData/
+/Build/
+
+*.xcuserdatad
+*.xcuserdata
+
+/Pods/
+
+*.swp
+*.lock
+*.tmp
