@@ -404,7 +404,7 @@
 				CODE_SIGN_ENTITLEMENTS = NearbyLinkNotifier/NearbyLinkNotifier.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NearbyLinkNotifier/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "NearbyLinkNotifier/Preview\\ Content NearbyLinkNotifier/Assets.xcassets";
 				DEVELOPMENT_TEAM = Q37KAF726J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -446,7 +446,7 @@
 				CODE_SIGN_ENTITLEMENTS = NearbyLinkNotifier/NearbyLinkNotifier.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NearbyLinkNotifier/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "NearbyLinkNotifier/Preview\\ Content NearbyLinkNotifier/Assets.xcassets";
 				DEVELOPMENT_TEAM = Q37KAF726J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
