@@ -6,6 +6,11 @@ lmnt
 sentence-transformers>=3.0.0
 python-dotenv
 datasets
+fastapi
+sqlalchemy
+geopy
+streamlit_folium
+folium
 
 # For document processing
 pypdf
