@@ -41,19 +41,21 @@ def geocode_address(address: str):
 # Pydantic Models
 class LinkInput(BaseModel):
     link: str
+    description: Optional[str] = None
     address: Optional[str] = None
     lat: Optional[float] = None
     lng: Optional[float] = None
 
 class LinkOutput(BaseModel):
     link: str
+    description: Optional[str]
     location: Dict[str, float]
 
 # Add or Update Link
 @app.post("/add-or-update-link", response_model=Dict[str, str])
 async def add_or_update_link(link_input: LinkInput):
     """
-    Add a new link and location to the database or update the location of an existing link.
+    Add a new link and location to the database or update the location and description of an existing link.
     """
     if link_input.lat is not None and link_input.lng is not None:
         location = {"lat": link_input.lat, "lng": link_input.lng}
@@ -65,14 +67,19 @@ async def add_or_update_link(link_input: LinkInput):
     else:
         raise HTTPException(status_code=400, detail="Either address or lat/lng must be provided.")
 
+    description = link_input.description or "No description provided"
+
     existing_entry = collection.find_one({"link": link_input.link})
     if existing_entry:
-        # Update the location of the existing link
-        collection.update_one({"link": link_input.link}, {"$set": {"location": location}})
+        # Update the location and description of the existing link
+        collection.update_one(
+            {"link": link_input.link}, 
+            {"$set": {"location": location, "description": description}}
+        )
         return {"message": "Link updated"}
     else:
-        # Insert a new link
-        collection.insert_one({"link": link_input.link, "location": location})
+        # Insert a new link with location and description
+        collection.insert_one({"link": link_input.link, "location": location, "description": description})
         return {"message": "Link added"}
 
 # Fetch All Links
@@ -82,7 +89,10 @@ async def fetch_all_links():
     Fetch all links from the database.
     """
     links = list(collection.find())
-    return [{"link": item["link"], "location": item["location"]} for item in links]
+    return [
+        {"link": item["link"], "description": item.get("description", "No description provided"), "location": item["location"]}
+        for item in links
+    ]
 
 # Fetch Nearby Links
 @app.get("/nearby-links", response_model=List[LinkOutput])
@@ -96,7 +106,11 @@ async def fetch_nearby_links(lat: float = Query(...), lng: float = Query(...), m
         location = item["location"]
         distance = geodesic((lat, lng), (location["lat"], location["lng"])).kilometers
         if distance <= max_distance:
-            nearby_links.append({"link": item["link"], "location": location})
+            nearby_links.append({
+                "link": item["link"],
+                "description": item.get("description", "No description provided"),
+                "location": location
+            })
     return nearby_links
 
 # Delete a Link
