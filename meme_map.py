@@ -6,13 +6,9 @@ from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
 import validators
 from pymongo import MongoClient
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
 
 # MongoDB configuration from .env
-MONGO_URI = os.getenv("MONGO_URI")
+MONGO_URI = st.secrets["MONGO_URI"]
 DB_NAME = "LinkLocationDB"  # Default database name
 COLLECTION_NAME = "links"   # Default collection name
 
