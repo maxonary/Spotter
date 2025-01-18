@@ -85,38 +85,27 @@ def main():
         st.error("Please enter a valid URL.")
         return
 
-    # Geocode address
+    # Input for street address
     st.subheader("Enter a Street Address")
     address = st.text_input("Street Address (e.g., '1600 Amphitheatre Parkway, Mountain View, CA')")
-    if st.button("Geocode Address"):
-        if address.strip():
+
+    if st.button("Save or Update Location"):
+        if address.strip() and link.strip():
+            # Geocode the address
             lat, lon = geocode_address(address)
             if lat is not None and lon is not None:
                 st.session_state.map_location = {"lat": lat, "lng": lon}
-                st.success(f"Address found: Latitude={lat}, Longitude={lon}")
+                location = st.session_state.map_location
+                # Save or update the link with the geocoded location
+                action = add_or_update_link(collection, link, location)
+                if action == "updated":
+                    st.success(f"Link updated: {link} now at Latitude={location['lat']}, Longitude={location['lng']}")
+                else:
+                    st.success(f"Link saved: {link} at Latitude={location['lat']}, Longitude={location['lng']}")
             else:
                 st.error("Could not find the address. Please try a different one.")
-
-    # Manual input for latitude/longitude
-    st.subheader("Manually Enter Location")
-    latitude = st.number_input(
-        "Latitude", value=st.session_state.map_location["lat"] if "map_location" in st.session_state else 0.0, step=0.0001
-    )
-    longitude = st.number_input(
-        "Longitude", value=st.session_state.map_location["lng"] if "map_location" in st.session_state else 0.0, step=0.0001
-    )
-
-    # Save or update link and location
-    if st.button("Save or Update Location"):
-        if link.strip():
-            location = {"lat": latitude, "lng": longitude}
-            action = add_or_update_link(collection, link, location)
-            if action == "updated":
-                st.success(f"Link updated: {link} now at Latitude={latitude}, Longitude={longitude}")
-            else:
-                st.success(f"Link saved: {link} at Latitude={latitude}, Longitude={longitude}")
         else:
-            st.error("Please enter a valid link.")
+            st.error("Please enter both an address and a valid link.")
 
     # Display all links on the map
     st.subheader("Interactive Map of Links")
