@@ -13,6 +13,8 @@ streamlit_folium
 folium
 pymongo
 python-dotenv
+fastapi
+uvicorn
 
 # For document processing
 pypdf
