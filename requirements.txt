@@ -12,6 +12,7 @@ geopy
 streamlit_folium
 folium
 pymongo
+python-dotenv
 
 # For document processing
 pypdf

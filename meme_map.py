@@ -4,12 +4,24 @@ from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
-import json
-from pathlib import Path
 import validators
+from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
-# File to store link and location data
-DATA_FILE = "links_and_locations.json"
+load_dotenv()
+
+# MongoDB configuration from .env
+MONGO_URI = os.getenv("MONGO_URI")
+DB_NAME = "LinkLocationDB"  # Default database name
+COLLECTION_NAME = "links"   # Default collection name
+
+
+def get_db():
+    """Connect to the MongoDB and return the collection."""
+    client = MongoClient(MONGO_URI)
+    db = client[DB_NAME]
+    return db[COLLECTION_NAME]
 
 
 def geocode_address(address):
@@ -28,36 +40,6 @@ def geocode_address(address):
         return None, None
 
 
-def load_data():
-    """Load data from the JSON file."""
-    if Path(DATA_FILE).exists():
-        with open(DATA_FILE, "r") as f:
-            return json.load(f)
-    return []
-
-
-def save_data(data):
-    """Save data to the JSON file."""
-    with open(DATA_FILE, "w") as f:
-        json.dump(data, f, indent=4)
-
-
-def add_or_update_link(data, link, location):
-    """
-    Add a new link and location to the data or update the location of an existing link.
-    """
-    for item in data:
-        if item["link"] == link:
-            # Update the existing link's location
-            item["location"] = location
-            save_data(data)
-            return "updated"
-    # Add a new entry
-    data.append({"link": link, "location": location})
-    save_data(data)
-    return "added"
-
-
 def is_valid_url(url):
     """
     Validate the provided URL.
@@ -65,8 +47,28 @@ def is_valid_url(url):
     return validators.url(url)
 
 
+def add_or_update_link(collection, link, location):
+    """
+    Add a new link and location to the database or update the location of an existing link.
+    """
+    existing_entry = collection.find_one({"link": link})
+    if existing_entry:
+        # Update the location of the existing link
+        collection.update_one({"link": link}, {"$set": {"location": location}})
+        return "updated"
+    else:
+        # Insert a new link
+        collection.insert_one({"link": link, "location": location})
+        return "added"
+
+
+def fetch_all_links(collection):
+    """Fetch all links from the database."""
+    return list(collection.find())
+
+
 def main():
-    st.title("Interactive Link Location Mapper with Validation and Updates")
+    st.title("Interactive Link Location Mapper with MongoDB")
 
     st.write("""
     Add links, locate them on a map, and see all previously added links.
@@ -76,8 +78,8 @@ def main():
     - Manually enter latitude and longitude values.
     """)
 
-    # Load existing data
-    data = load_data()
+    # Connect to MongoDB
+    collection = get_db()
 
     # Input for new link
     st.subheader("Add or Update a Link")
@@ -112,7 +114,7 @@ def main():
     if st.button("Save or Update Location"):
         if link.strip():
             location = {"lat": latitude, "lng": longitude}
-            action = add_or_update_link(data, link, location)
+            action = add_or_update_link(collection, link, location)
             if action == "updated":
                 st.success(f"Link updated: {link} now at Latitude={latitude}, Longitude={longitude}")
             else:
@@ -125,11 +127,14 @@ def main():
     map_center = [0, 0]  # Default center
     map_zoom = 2  # Default zoom level
 
+    # Fetch all links from the database
+    all_links = fetch_all_links(collection)
+
     # Create a Folium map
     link_map = Map(location=map_center, zoom_start=map_zoom)
     marker_cluster = MarkerCluster().add_to(link_map)
 
-    for item in data:
+    for item in all_links:
         link = item["link"]
         location = item["location"]
         Marker(
