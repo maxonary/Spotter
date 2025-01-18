@@ -29,9 +29,22 @@
 		394A82FA2D3C36C100FEA805 /* NearbyLinkNotifierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearbyLinkNotifierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		394A83272D3C598300FEA805 /* Exceptions for "NearbyLinkNotifier" folder in "NearbyLinkNotifier" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 394A82DE2D3C36C000FEA805 /* NearbyLinkNotifier */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		394A82E12D3C36C000FEA805 /* NearbyLinkNotifier */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				394A83272D3C598300FEA805 /* Exceptions for "NearbyLinkNotifier" folder in "NearbyLinkNotifier" target */,
+			);
 			path = NearbyLinkNotifier;
 			sourceTree = "<group>";
 		};
@@ -392,8 +405,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NearbyLinkNotifier/Preview Content\"";
+				DEVELOPMENT_TEAM = Q37KAF726J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NearbyLinkNotifier/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to notify you of nearby content, even in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to notify you of nearby content.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will allow us to send personalized notifications.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -429,8 +447,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NearbyLinkNotifier/Preview Content\"";
+				DEVELOPMENT_TEAM = Q37KAF726J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NearbyLinkNotifier/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to notify you of nearby content, even in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to notify you of nearby content.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will allow us to send personalized notifications.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
