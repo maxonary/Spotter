@@ -12,6 +12,8 @@ MONGO_URI = st.secrets["MONGO_URI"]
 DB_NAME = "LinkLocationDB"  # Default database name
 COLLECTION_NAME = "links"   # Default collection name
 
+# Default map center (Berlin) from Streamlit secrets
+DEFAULT_MAP_CENTER = st.secrets["DEFAULT_MAP_CENTER"]
 
 def get_db():
     """Connect to the MongoDB and return the collection."""
@@ -109,8 +111,8 @@ def main():
 
     # Display all links on the map
     st.subheader("Interactive Map of Links")
-    map_center = [0, 0]  # Default center
-    map_zoom = 2  # Default zoom level
+    map_center = [DEFAULT_MAP_CENTER["lat"], DEFAULT_MAP_CENTER["lng"]]
+    map_zoom = 12  # Set a reasonable default zoom level for Berlin
 
     # Fetch all links from the database
     all_links = fetch_all_links(collection)
