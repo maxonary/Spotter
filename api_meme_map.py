@@ -51,6 +51,11 @@ class LinkOutput(BaseModel):
     description: Optional[str]
     location: Dict[str, float]
 
+# Routes
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Meme Map API!"}
+
 # Add or Update Link
 @app.post("/add-or-update-link", response_model=Dict[str, str])
 async def add_or_update_link(link_input: LinkInput):
