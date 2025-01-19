@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "appicon Kopie.png",
+      "filename" : "Reworked Logo.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "appicon Kopie 1.png",
+      "filename" : "Reworked Logo 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,67 +25,67 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "appicon Kopie 2.png",
+      "filename" : "Reworked Logo 2.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
     },
     {
-      "filename" : "appicon Kopie 3.png",
+      "filename" : "Reworked Logo 3.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
-      "filename" : "appicon Kopie 4.png",
+      "filename" : "Reworked Logo 4.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
-      "filename" : "appicon Kopie 5.png",
+      "filename" : "Reworked Logo 5.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
-      "filename" : "appicon Kopie 6.png",
+      "filename" : "Reworked Logo 6.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
-      "filename" : "appicon Kopie 8.png",
+      "filename" : "Reworked Logo 7.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
-      "filename" : "appicon Kopie 7.png",
+      "filename" : "Reworked Logo 8.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
-      "filename" : "appicon Kopie 11.png",
+      "filename" : "Reworked Logo 10.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
-      "filename" : "appicon Kopie 9.png",
+      "filename" : "Reworked Logo 9.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
-      "filename" : "appicon Kopie 10.png",
+      "filename" : "Reworked Logo 11.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
-      "filename" : "appicon Kopie 12.png",
+      "filename" : "Reworked Logo 12.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
