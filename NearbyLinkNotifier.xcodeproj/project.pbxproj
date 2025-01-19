@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		394A82F12D3C36C100FEA805 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 394A82D72D3C36C000FEA805 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 394A82DE2D3C36C000FEA805;
+			remoteInfo = NearbyLinkNotifier;
+		};
+		394A82FB2D3C36C100FEA805 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 394A82D72D3C36C000FEA805 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 394A82DE2D3C36C000FEA805;
+			remoteInfo = NearbyLinkNotifier;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		394A82DF2D3C36C000FEA805 /* NearbyLinkNotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearbyLinkNotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		394A82F02D3C36C100FEA805 /* NearbyLinkNotifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearbyLinkNotifierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		394A82FA2D3C36C100FEA805 /* NearbyLinkNotifierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearbyLinkNotifierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		394A83272D3C598300FEA805 /* Exceptions for "NearbyLinkNotifier" folder in "NearbyLinkNotifier" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 394A82DE2D3C36C000FEA805 /* NearbyLinkNotifier */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		394A82E12D3C36C000FEA805 /* NearbyLinkNotifier */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				394A83272D3C598300FEA805 /* Exceptions for "NearbyLinkNotifier" folder in "NearbyLinkNotifier" target */,
+			);
+			path = NearbyLinkNotifier;
+			sourceTree = "<group>";
+		};
+		394A82F32D3C36C100FEA805 /* NearbyLinkNotifierTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NearbyLinkNotifierTests;
+			sourceTree = "<group>";
+		};
+		394A82FD2D3C36C100FEA805 /* NearbyLinkNotifierUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NearbyLinkNotifierUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		394A82DC2D3C36C000FEA805 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		394A82ED2D3C36C100FEA805 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		394A82F72D3C36C100FEA805 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		394A82D62D3C36C000FEA805 = {
+			isa = PBXGroup;
+			children = (
+				394A82E12D3C36C000FEA805 /* NearbyLinkNotifier */,
+				394A82F32D3C36C100FEA805 /* NearbyLinkNotifierTests */,
+				394A82FD2D3C36C100FEA805 /* NearbyLinkNotifierUITests */,
+				394A82E02D3C36C000FEA805 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		394A82E02D3C36C000FEA805 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				394A82DF2D3C36C000FEA805 /* NearbyLinkNotifier.app */,
+				394A82F02D3C36C100FEA805 /* NearbyLinkNotifierTests.xctest */,
+				394A82FA2D3C36C100FEA805 /* NearbyLinkNotifierUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		394A82DE2D3C36C000FEA805 /* NearbyLinkNotifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 394A83042D3C36C100FEA805 /* Build configuration list for PBXNativeTarget "NearbyLinkNotifier" */;
+			buildPhases = (
+				394A82DB2D3C36C000FEA805 /* Sources */,
+				394A82DC2D3C36C000FEA805 /* Frameworks */,
+				394A82DD2D3C36C000FEA805 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				394A82E12D3C36C000FEA805 /* NearbyLinkNotifier */,
+			);
+			name = NearbyLinkNotifier;
+			packageProductDependencies = (
+			);
+			productName = NearbyLinkNotifier;
+			productReference = 394A82DF2D3C36C000FEA805 /* NearbyLinkNotifier.app */;
+			productType = "com.apple.product-type.application";
+		};
+		394A82EF2D3C36C100FEA805 /* NearbyLinkNotifierTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 394A83072D3C36C100FEA805 /* Build configuration list for PBXNativeTarget "NearbyLinkNotifierTests" */;
+			buildPhases = (
+				394A82EC2D3C36C100FEA805 /* Sources */,
+				394A82ED2D3C36C100FEA805 /* Frameworks */,
+				394A82EE2D3C36C100FEA805 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				394A82F22D3C36C100FEA805 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				394A82F32D3C36C100FEA805 /* NearbyLinkNotifierTests */,
+			);
+			name = NearbyLinkNotifierTests;
+			packageProductDependencies = (
+			);
+			productName = NearbyLinkNotifierTests;
+			productReference = 394A82F02D3C36C100FEA805 /* NearbyLinkNotifierTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		394A82F92D3C36C100FEA805 /* NearbyLinkNotifierUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 394A830A2D3C36C100FEA805 /* Build configuration list for PBXNativeTarget "NearbyLinkNotifierUITests" */;
+			buildPhases = (
+				394A82F62D3C36C100FEA805 /* Sources */,
+				394A82F72D3C36C100FEA805 /* Frameworks */,
+				394A82F82D3C36C100FEA805 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				394A82FC2D3C36C100FEA805 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				394A82FD2D3C36C100FEA805 /* NearbyLinkNotifierUITests */,
+			);
+			name = NearbyLinkNotifierUITests;
+			packageProductDependencies = (
+			);
+			productName = NearbyLinkNotifierUITests;
+			productReference = 394A82FA2D3C36C100FEA805 /* NearbyLinkNotifierUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		394A82D72D3C36C000FEA805 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					394A82DE2D3C36C000FEA805 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					394A82EF2D3C36C100FEA805 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 394A82DE2D3C36C000FEA805;
+					};
+					394A82F92D3C36C100FEA805 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 394A82DE2D3C36C000FEA805;
+					};
+				};
+			};
+			buildConfigurationList = 394A82DA2D3C36C000FEA805 /* Build configuration list for PBXProject "NearbyLinkNotifier" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 394A82D62D3C36C000FEA805;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 394A82E02D3C36C000FEA805 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				394A82DE2D3C36C000FEA805 /* NearbyLinkNotifier */,
+				394A82EF2D3C36C100FEA805 /* NearbyLinkNotifierTests */,
+				394A82F92D3C36C100FEA805 /* NearbyLinkNotifierUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		394A82DD2D3C36C000FEA805 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		394A82EE2D3C36C100FEA805 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		394A82F82D3C36C100FEA805 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		394A82DB2D3C36C000FEA805 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		394A82EC2D3C36C100FEA805 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		394A82F62D3C36C100FEA805 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		394A82F22D3C36C100FEA805 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 394A82DE2D3C36C000FEA805 /* NearbyLinkNotifier */;
+			targetProxy = 394A82F12D3C36C100FEA805 /* PBXContainerItemProxy */;
+		};
+		394A82FC2D3C36C100FEA805 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 394A82DE2D3C36C000FEA805 /* NearbyLinkNotifier */;
+			targetProxy = 394A82FB2D3C36C100FEA805 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		394A83022D3C36C100FEA805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		394A83032D3C36C100FEA805 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		394A83052D3C36C100FEA805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NearbyLinkNotifier/NearbyLinkNotifier.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "NearbyLinkNotifier/Preview\\ Content NearbyLinkNotifier/Assets.xcassets";
+				DEVELOPMENT_TEAM = Q37KAF726J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NearbyLinkNotifier/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Spotter;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to notify you of nearby content, even in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to notify you of nearby content.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will allow us to send personalized notifications.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TalahonAlert.nearbylinknotifier.NearbyLinkNotifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		394A83062D3C36C100FEA805 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NearbyLinkNotifier/NearbyLinkNotifier.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "NearbyLinkNotifier/Preview\\ Content NearbyLinkNotifier/Assets.xcassets";
+				DEVELOPMENT_TEAM = Q37KAF726J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NearbyLinkNotifier/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Spotter;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to notify you of nearby content, even in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to notify you of nearby content.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will allow us to send personalized notifications.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TalahonAlert.nearbylinknotifier.NearbyLinkNotifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		394A83082D3C36C100FEA805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TalahonAlert.nearbylinknotifier.NearbyLinkNotifierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NearbyLinkNotifier.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NearbyLinkNotifier";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		394A83092D3C36C100FEA805 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TalahonAlert.nearbylinknotifier.NearbyLinkNotifierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NearbyLinkNotifier.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NearbyLinkNotifier";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		394A830B2D3C36C100FEA805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TalahonAlert.nearbylinknotifier.NearbyLinkNotifierUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = NearbyLinkNotifier;
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		394A830C2D3C36C100FEA805 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TalahonAlert.nearbylinknotifier.NearbyLinkNotifierUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = NearbyLinkNotifier;
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		394A82DA2D3C36C000FEA805 /* Build configuration list for PBXProject "NearbyLinkNotifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				394A83022D3C36C100FEA805 /* Debug */,
+				394A83032D3C36C100FEA805 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		394A83042D3C36C100FEA805 /* Build configuration list for PBXNativeTarget "NearbyLinkNotifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				394A83052D3C36C100FEA805 /* Debug */,
+				394A83062D3C36C100FEA805 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		394A83072D3C36C100FEA805 /* Build configuration list for PBXNativeTarget "NearbyLinkNotifierTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				394A83082D3C36C100FEA805 /* Debug */,
+				394A83092D3C36C100FEA805 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		394A830A2D3C36C100FEA805 /* Build configuration list for PBXNativeTarget "NearbyLinkNotifierUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				394A830B2D3C36C100FEA805 /* Debug */,
+				394A830C2D3C36C100FEA805 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 394A82D72D3C36C000FEA805 /* Project object */;
+}
