@@ -1,9 +1,4 @@
-streamlit==1.41.1
-haystack-ai==2.9.0
-weaviate-haystack
-mistral-haystack
-lmnt
-sentence-transformers>=3.0.0
+streamlit
 python-dotenv
 datasets
 fastapi
@@ -15,9 +10,3 @@ pymongo
 python-dotenv
 fastapi
 uvicorn
-
-# For document processing
-pypdf
-nltk
-markdown-it-py 
-mdit_plain
