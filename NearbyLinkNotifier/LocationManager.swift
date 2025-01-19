@@ -59,19 +59,23 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 let timeSinceLastNotification = Date().timeIntervalSince(lastNotificationDate)
 
                 if timeSinceLastNotification >= notificationInterval {
-                    // Check if the description exists
-                    let title = "Nearby Content Available!"
+                    // Variables for notification content
+                    let title: String
                     let body: String
-                    
+
+                    // Check if the description exists
                     if let description = link.description, !description.isEmpty {
                         // Use description and include the website
                         let website = getWebsiteName(from: link.link)
-                        body = "\(description) from \(website)"
+                        title = "Spotter via \(website)"
+                        body = "\(description)"
                     } else {
+                        let website = getWebsiteName(from: link.link)
+                        title = "Spotter via \(website)"
                         // Fallback to showing the link
                         body = "Check out this link: \(link.link)"
                     }
-                    
+
                     // Send notification
                     sendNotification(
                         title: title,
@@ -83,7 +87,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             }
         }
     }
-
+    
     // Send a local notification with the link in userInfo
     private func sendNotification(title: String, body: String, link: String) {
         let content = UNMutableNotificationContent()
