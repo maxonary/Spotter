@@ -4,10 +4,9 @@ import UserNotifications
 class LocationManager: NSObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     private let proximityThreshold: Double = 30.0 // Distance in meters
-    private let notificationInterval: TimeInterval = 60 // Time interval in seconds
-    private var lastNotificationDate: Date = Date.distantPast // Last time a notification was sent
     private var nearbyLocations: [Link] = [] // Locations fetched from the API
     private var sortedLocations: [(link: Link, distance: Double)] = [] // Sorted locations with distances
+    private let notifiedLinksKey = "NotifiedLinks" // Key for UserDefaults storage
 
     override init() {
         super.init()
@@ -36,7 +35,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let userLocation = locations.last else { return }
         sortLocationsByDistance(userLocation: userLocation)
-        checkProximityAndNotify(userLocation: userLocation)
+        notifyForNearbyLocations(userLocation: userLocation)
     }
 
     // Sort locations by distance from the user's current location
@@ -52,27 +51,25 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         .sorted(by: { $0.distance < $1.distance }) // Sort by ascending distance
     }
 
-    // Check proximity to links and send a notification if within proximityThreshold
-    private func checkProximityAndNotify(userLocation: CLLocation) {
+    // Notify for nearby locations immediately if within proximityThreshold
+    private func notifyForNearbyLocations(userLocation: CLLocation) {
         for (link, distance) in sortedLocations {
+            // Check if the location is within proximity threshold
             if distance <= proximityThreshold {
-                let timeSinceLastNotification = Date().timeIntervalSince(lastNotificationDate)
-
-                if timeSinceLastNotification >= notificationInterval {
+                // Ensure the link hasn't been notified yet
+                if !isLinkNotified(link.link) {
                     // Variables for notification content
                     let title: String
                     let body: String
 
                     // Check if the description exists
                     if let description = link.description, !description.isEmpty {
-                        // Use description and include the website
                         let website = getWebsiteName(from: link.link)
                         title = "Spotter via \(website)"
                         body = "\(description)"
                     } else {
                         let website = getWebsiteName(from: link.link)
                         title = "Spotter via \(website)"
-                        // Fallback to showing the link
                         body = "Check out this link: \(link.link)"
                     }
 
@@ -82,12 +79,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                         body: body,
                         link: link.link
                     )
-                    lastNotificationDate = Date() // Update last notification time
+
+                    // Mark link as notified
+                    markLinkAsNotified(link.link)
                 }
             }
         }
     }
-    
+
     // Send a local notification with the link in userInfo
     private func sendNotification(title: String, body: String, link: String) {
         let content = UNMutableNotificationContent()
@@ -122,5 +121,20 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             }
         }
         return "Website"
+    }
+
+    // MARK: - UserDefaults Helpers
+
+    // Check if a link has already been notified
+    private func isLinkNotified(_ link: String) -> Bool {
+        let notifiedLinks = UserDefaults.standard.stringArray(forKey: notifiedLinksKey) ?? []
+        return notifiedLinks.contains(link)
+    }
+
+    // Mark a link as notified
+    private func markLinkAsNotified(_ link: String) {
+        var notifiedLinks = UserDefaults.standard.stringArray(forKey: notifiedLinksKey) ?? []
+        notifiedLinks.append(link)
+        UserDefaults.standard.set(notifiedLinks, forKey: notifiedLinksKey)
     }
 }
