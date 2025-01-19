@@ -67,7 +67,7 @@ async def add_or_update_link(link_input: LinkInput):
     else:
         raise HTTPException(status_code=400, detail="Either address or lat/lng must be provided.")
 
-    description = link_input.description or "No description provided"
+    description = link_input.description
 
     existing_entry = collection.find_one({"link": link_input.link})
     if existing_entry:
@@ -90,7 +90,11 @@ async def fetch_all_links():
     """
     links = list(collection.find())
     return [
-        {"link": item["link"], "description": item.get("description", "No description provided"), "location": item["location"]}
+        {
+            "link": item["link"], 
+            "description": item.get("description", None), 
+            "location": item["location"]
+        }
         for item in links
     ]
 
@@ -108,7 +112,7 @@ async def fetch_nearby_links(lat: float = Query(...), lng: float = Query(...), m
         if distance <= max_distance:
             nearby_links.append({
                 "link": item["link"],
-                "description": item.get("description", "No description provided"),
+                "description": item.get("description", None),
                 "location": location
             })
     return nearby_links
