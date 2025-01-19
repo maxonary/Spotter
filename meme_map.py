@@ -1,8 +1,4 @@
 import streamlit as st
-import sys
-import os
-import subprocess
-import threading
 from folium import Map, Marker
 from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
@@ -15,17 +11,6 @@ from pymongo import MongoClient
 MONGO_URI = st.secrets["MONGO_URI"]
 DB_NAME = "LinkLocationDB"  # Default database name
 COLLECTION_NAME = "links"   # Default collection name
-
-# Run FastAPI Backend app in a subprocess
-def run_fastapi():
-    subprocess.run(
-        [sys.executable, "-m", "uvicorn", "api_meme_map:app", "--host", "0.0.0.0", "--port", "8000"],
-        env={"MONGO_URI": MONGO_URI, **os.environ},  # Pass MONGO_URI and inherit other environment variables
-    )
-
-# Start FastAPI in a separate thread
-threading.Thread(target=run_fastapi, daemon=True).start()
-
 
 # Default map center (Berlin) from Streamlit secrets
 DEFAULT_MAP_CENTER = st.secrets["DEFAULT_MAP_CENTER"]
