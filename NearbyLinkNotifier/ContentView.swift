@@ -17,9 +17,18 @@ struct ContentView: View {
                         openLink(link.link) // Open link in Safari when clicked
                     }) {
                         VStack(alignment: .leading) {
-                            Text(link.link)
-                                .font(.headline)
-                                .foregroundColor(.blue) // Indicate it is clickable
+                            // Show description if available; fallback to the link
+                            if let description = link.description, !description.isEmpty {
+                                Text(description)
+                                    .font(.headline)
+                                    .foregroundColor(.blue) // Indicate it is clickable
+                            } else {
+                                Text(link.link)
+                                    .font(.headline)
+                                    .foregroundColor(.blue) // Indicate it is clickable
+                            }
+                            
+                            // Show location if available
                             if let location = link.location, let lat = location["lat"], let lng = location["lng"] {
                                 Text("Lat: \(lat), Lng: \(lng)")
                                     .font(.subheadline)
