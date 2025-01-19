@@ -409,6 +409,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NearbyLinkNotifier/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Spotter;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to notify you of nearby content, even in the background.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to notify you of nearby content.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will allow us to send personalized notifications.";
@@ -451,6 +452,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NearbyLinkNotifier/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Spotter;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to notify you of nearby content, even in the background.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to notify you of nearby content.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will allow us to send personalized notifications.";
