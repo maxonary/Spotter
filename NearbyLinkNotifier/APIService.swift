@@ -4,6 +4,7 @@ class APIService {
     static let shared = APIService()
     private let baseURL = "http://192.168.10.119:8000" // Replace with your backend's IP
 
+    // Fetch all links from the backend
     func fetchAllLinks(completion: @escaping ([Link]?) -> Void) {
         guard let url = URL(string: "\(baseURL)/all-links") else {
             print("Invalid URL")
@@ -25,6 +26,7 @@ class APIService {
             }
 
             do {
+                // Decode the response to an array of Link objects
                 let links = try JSONDecoder().decode([Link].self, from: data)
                 completion(links)
             } catch {
@@ -34,6 +36,7 @@ class APIService {
         }.resume()
     }
 
+    // Delete a link from the backend
     func deleteLink(_ link: String, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "\(baseURL)/delete-link?link=\(link)") else {
             print("Invalid URL")
