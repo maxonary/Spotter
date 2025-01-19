@@ -2,7 +2,7 @@ import Foundation
 
 class APIService {
     static let shared = APIService()
-    private let baseURL = "http://192.168.10.119:8000" // Replace with your backend's IP
+    private let baseURL = "https://api-meme-map.onrender.com" // Replace with the backend's IP
 
     // Fetch all links from the backend
     func fetchAllLinks(completion: @escaping ([Link]?) -> Void) {
