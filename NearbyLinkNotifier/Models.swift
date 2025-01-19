@@ -1,7 +1,8 @@
 // Models.swift
 import Foundation
 
-struct Link: Codable { // Use Codable to support both Decodable and Encodable
+struct Link: Codable {
     let link: String
     let location: [String: Double]?
+    let description: String? // Optional field for description
 }

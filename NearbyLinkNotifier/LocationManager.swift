@@ -50,26 +50,32 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             return nil
         }
         .sorted(by: { $0.distance < $1.distance }) // Sort by ascending distance
-
-        // print("Sorted locations by distance:")
-        // for (link, distance) in sortedLocations {
-        //     print("\(link.link) - \(distance) meters")
-        // }
     }
 
     // Check proximity to links and send a notification if within proximityThreshold
     private func checkProximityAndNotify(userLocation: CLLocation) {
         for (link, distance) in sortedLocations {
-            // print("Distance to \(link.link): \(distance) meters")
-
             if distance <= proximityThreshold {
                 let timeSinceLastNotification = Date().timeIntervalSince(lastNotificationDate)
 
                 if timeSinceLastNotification >= notificationInterval {
-                    // Send notification with the link in userInfo
+                    // Check if the description exists
+                    let title = "Nearby Content Available!"
+                    let body: String
+                    
+                    if let description = link.description, !description.isEmpty {
+                        // Use description and include the website
+                        let website = getWebsiteName(from: link.link)
+                        body = "\(description) from \(website)"
+                    } else {
+                        // Fallback to showing the link
+                        body = "Check out this link: \(link.link)"
+                    }
+                    
+                    // Send notification
                     sendNotification(
-                        title: "Nearby Link Found!",
-                        body: "Check out this link: \(link.link)",
+                        title: title,
+                        body: body,
                         link: link.link
                     )
                     lastNotificationDate = Date() // Update last notification time
@@ -99,5 +105,18 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 print("Notification triggered: \(title)")
             }
         }
+    }
+
+    // Extract website name from a URL
+    private func getWebsiteName(from url: String) -> String {
+        if let host = URL(string: url)?.host {
+            let components = host.split(separator: ".")
+            if components.count > 1 {
+                return components[1].capitalized // Extract the second component (e.g., "instagram" from "www.instagram.com")
+            } else {
+                return host.capitalized
+            }
+        }
+        return "Website"
     }
 }
