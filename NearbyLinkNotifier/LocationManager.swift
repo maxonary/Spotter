@@ -7,13 +7,29 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     private var nearbyLocations: [Link] = [] // Locations fetched from the API
     private var sortedLocations: [(link: Link, distance: Double)] = [] // Sorted locations with distances
     private let notifiedLinksKey = "NotifiedLinks" // Key for UserDefaults storage
+    private var fetchTimer: Timer? // Timer for periodic fetching
 
     override init() {
         super.init()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization() // Request location permissions
         locationManager.startUpdatingLocation() // Start monitoring location
-        fetchNearbyLinksFromAPI() // Fetch links from backend
+
+        // Start fetching locations every 5 seconds
+        startFetchingLocations()
+    }
+
+    // Start the timer to fetch locations every 5 seconds
+    private func startFetchingLocations() {
+        fetchTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { [weak self] _ in
+            self?.fetchNearbyLinksFromAPI()
+        }
+    }
+
+    // Stop the timer when needed
+    private func stopFetchingLocations() {
+        fetchTimer?.invalidate()
+        fetchTimer = nil
     }
 
     // Fetch locations from the API
