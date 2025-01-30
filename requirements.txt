@@ -10,3 +10,4 @@ pymongo
 python-dotenv
 fastapi
 uvicorn
+validators
