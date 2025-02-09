@@ -40,7 +40,7 @@ struct ContentView: View {
 
 // Your existing view logic moved into a separate struct
 struct CollectedSpotsView: View {
-    @State private var links: [(link: Link, distance: Double)] = [] // Store links with distances
+    @State private var links: [(link: SpotterLink, distance: Double)] = [] // Store links with distances
     @State private var errorMessage: ErrorMessage?
     private let notifiedLinksKey = "NotifiedLinks" // Key for UserDefaults storage
     private let locationManager = CLLocationManager() // To get user location

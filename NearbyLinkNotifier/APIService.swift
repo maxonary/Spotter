@@ -5,7 +5,7 @@ class APIService {
     private let baseURL = "https://api-meme-map.onrender.com" // Replace with the backend's IP
 
     // Fetch all links from the backend
-    func fetchAllLinks(completion: @escaping ([Link]?) -> Void) {
+    func fetchAllLinks(completion: @escaping ([SpotterLink]?) -> Void) {
         guard let url = URL(string: "\(baseURL)/all-links") else {
             print("Invalid URL")
             completion(nil)
@@ -27,7 +27,7 @@ class APIService {
 
             do {
                 // Decode the response to an array of Link objects
-                let links = try JSONDecoder().decode([Link].self, from: data)
+                let links = try JSONDecoder().decode([SpotterLink].self, from: data)
                 completion(links)
             } catch {
                 print("Error decoding response: \(error.localizedDescription)")

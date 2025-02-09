@@ -4,8 +4,8 @@ import UserNotifications
 class LocationManager: NSObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     private let proximityThreshold: Double = 30.0 // Distance in meters
-    private var nearbyLocations: [Link] = [] // Locations fetched from the API
-    private var sortedLocations: [(link: Link, distance: Double)] = [] // Sorted locations with distances
+    private var nearbyLocations: [SpotterLink] = [] // Locations fetched from the API
+    private var sortedLocations: [(link: SpotterLink, distance: Double)] = [] // Sorted locations with distances
     private let notifiedLinksKey = "NotifiedLinks" // Key for UserDefaults storage
     private var fetchTimer: Timer? // Timer for periodic fetching
 
