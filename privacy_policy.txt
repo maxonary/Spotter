@@ -1,0 +1,83 @@
+Datenschutzerklärung für die Nutzung der Beta-Version von Spotter
+
+Letzte Aktualisierung: 09.02.2025
+
+1. Verantwortlicher
+
+Verantwortlich für die Verarbeitung der Daten im Rahmen dieser Beta-Version ist:
+
+Maximilian Arnold
+maxonary
+
+Da ich diese App als Privatperson entwickle, betreibe ich kein Unternehmen und habe keine offizielle Firmenadresse. Bei Fragen zum Datenschutz kannst du mich per GitHub Pull Request oder Issue kontaktieren.
+
+2. Welche Daten werden verarbeitet?
+
+Bei der Nutzung der Beta-Version von Spotter können folgende Daten erfasst und verarbeitet werden:
+
+Automatisch erfasste Daten
+	•	Gerätetyp und Betriebssystem
+	•	App-Nutzungsverhalten (z. B. Sitzungsdauer, häufig genutzte Funktionen, Interaktionen)
+	•	Fehlermeldungen und Absturzberichte
+	•	Log-Dateien (z. B. IP-Adresse, Zugriffszeit, verwendete App-Version)
+	•	Standortdaten (falls aktiviert, siehe Punkt 3)
+
+Vom Nutzer bereitgestellte Daten
+	•	Name oder Benutzername (falls erforderlich)
+	•	E-Mail-Adresse (falls eine Registrierung notwendig ist)
+    •	Telefonnummer (falls eine Registrierung notwendig ist)
+	•	Feedback und Fehlermeldungen
+
+Ich erhebe nur die Daten, die für den Betrieb und die Verbesserung der App notwendig sind.
+
+3. Standortdaten
+
+Falls du der Nutzung von Standortdaten zugestimmt hast, werden diese verwendet für:
+	•	Bereitstellung standortbasierter Dienste
+	•	Analyse der Nutzung bestimmter Features nach Regionen
+
+Die Standortdaten werden nicht dauerhaft gespeichert und nicht an Dritte weitergegeben. Du kannst die Standortfreigabe jederzeit in den Einstellungen deines Geräts deaktivieren.
+
+4. Zweck der Datenverarbeitung
+
+Die gesammelten Daten werden verwendet, um:
+	•	Fehler zu identifizieren und die App zu verbessern
+	•	Die App stabiler und sicherer zu machen
+	•	Feedback der Beta-Nutzer zu analysieren
+	•	Statistiken zur App-Nutzung zu erstellen (z. B. welche Funktionen am meisten genutzt werden)
+
+5. Rechtsgrundlage der Datenverarbeitung
+
+Die Verarbeitung basiert auf:
+	•	Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) für Beta-Tester, die sich zur Testphase angemeldet haben.
+	•	Art. 6 Abs. 1 lit. f DSGVO (Berechtigtes Interesse) für Fehleranalyse und App-Verbesserung.
+	•	Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) für Standortdaten oder falls Nutzer aktiv ihre Daten übermitteln.
+
+6. Werden Daten an Dritte weitergegeben?
+	•	Ich verkaufe keine Daten und nutze sie nicht für Werbung.
+	•	Falls Drittanbieter-Tools (z. B. Google Firebase für Fehlerberichte) verwendet werden, informiere ich darüber gesondert.
+	•	Standortdaten werden nicht an Dritte weitergegeben, es sei denn, sie sind für eine bestimmte Funktion notwendig (z. B. Karten-Dienste).
+
+7. Speicherdauer der Daten
+	•	Nutzungsdaten (z. B. App-Verhalten) werden für maximal [z. B. 6 Monate] gespeichert und dann anonymisiert.
+	•	Standortdaten werden nur temporär verarbeitet und nicht dauerhaft gespeichert.
+	•	Fehlermeldungen und Logs werden für [z. B. 3 Monate] gespeichert und dann gelöscht.
+
+8. Deine Rechte als Nutzer
+
+Du hast folgende Rechte gemäß DSGVO:
+	•	Auskunftsrecht (Art. 15 DSGVO) – Du kannst erfahren, welche Daten gespeichert sind.
+	•	Recht auf Berichtigung (Art. 16 DSGVO) – Falls deine Daten falsch sind, kannst du eine Korrektur verlangen.
+	•	Recht auf Löschung (Art. 17 DSGVO) – Du kannst verlangen, dass deine Daten gelöscht werden.
+	•	Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO).
+	•	Widerspruchsrecht (Art. 21 DSGVO) – Du kannst der Datenverarbeitung widersprechen.
+
+Anfragen zu diesen Rechten kannst du an [E-Mail-Adresse] richten.
+
+9. Datensicherheit
+
+Ich setze Sicherheitsmaßnahmen ein, um deine Daten zu schützen, z. B. [Verschlüsselung, Zugriffsbeschränkungen]. Da ich als Privatperson keine eigene IT-Infrastruktur betreibe, nutze ich Dienste von Drittanbietern, um die Sicherheit zu gewährleisten.
+
+10. Änderungen dieser Datenschutzerklärung
+
+Falls sich die App oder die gesetzlichen Rahmenbedingungen ändern, wird diese Datenschutzerklärung angepasst. Die aktuelle Version findest du jederzeit unter https://github.com/maxonary/Spotter/blob/main/privacy_policy.txt.
