@@ -49,29 +49,12 @@ struct CollectedSpotsView: View {
         NavigationView {
             List {
                 ForEach(links, id: \.link.link) { item in
-                    Button(action: {
-                        openLink(item.link.link)
-                    }) {
-                        VStack(alignment: .leading) {
-                            if let description = item.link.description, !description.isEmpty {
-                                Text(description)
-                                    .font(.headline)
-                                    .foregroundColor(.blue)
-                            } else {
-                                Text(item.link.link)
-                                    .font(.headline)
-                                    .foregroundColor(.blue)
-                            }
-                            
-                            if let location = item.link.location, let lat = location["lat"], let lng = location["lng"] {
-                                Text("Lat: \(lat), Lng: \(lng)")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                                Text("Distance: \(String(format: "%.1f", item.distance)) meters")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                            }
-                        }
+                    if let url = URL(string: item.link.link) {
+                        LinkPreviewView(url: url) // Uses our new Link Preview Component
+                    } else {
+                        Text("Invalid URL")
+                            .font(.headline)
+                            .foregroundColor(.red)
                     }
                 }
                 .onDelete(perform: deleteLink)
@@ -142,6 +125,7 @@ struct CollectedSpotsView: View {
     }
 }
 
+
 struct DiscoverView: View {
     @State private var locations: [LocationAnnotation] = [] // Store locations
     
@@ -152,38 +136,51 @@ struct DiscoverView: View {
         )
     )
 
+    @State private var selectedLocation: LocationAnnotation? // Track selected pin
+
     var body: some View {
         NavigationView {
-            Map(position: $cameraPosition) {
-                ForEach(locations) { location in
-                    Annotation(location.title, coordinate: location.coordinate) {
-                        VStack {
-                            Image(systemName: "mappin.circle.fill")
-                                .foregroundColor(.red)
-                                .font(.title)
-                            Text(location.title)
-                                .font(.caption)
-                                .padding(5)
-                                .background(Color.white.opacity(0.7))
-                                .cornerRadius(5)
-                        }
-                        .onTapGesture {
-                            cameraPosition = .region(
-                                MKCoordinateRegion(
-                                    center: location.coordinate,
-                                    span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            ZStack {
+                Map(position: $cameraPosition) {
+                    ForEach(locations) { location in
+                        Annotation(location.title, coordinate: location.coordinate) {
+                            VStack {
+                                Image(systemName: "mappin.circle.fill")
+                                    .foregroundColor(.red)
+                                    .font(.title)
+                            }
+                            .onTapGesture {
+                                selectedLocation = location // Show tooltip overlay
+                                cameraPosition = .region(
+                                    MKCoordinateRegion(
+                                        center: location.coordinate,
+                                        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                                    )
                                 )
-                            )
+                            }
                         }
                     }
                 }
+                .ignoresSafeArea()
+
+                // Show overlay when a pin is tapped
+                if let selectedLocation = selectedLocation {
+                    VStack {
+                        Spacer()
+                        LinkPreviewOverlay(location: selectedLocation) {
+                            self.selectedLocation = nil // Close overlay when tapped
+                        }
+                    }
+                    .transition(.move(edge: .bottom))
+                    .animation(.spring(), value: selectedLocation)
+                }
             }
             .navigationTitle("Discover")
-            .onAppear(perform: fetchLocations) // Fetch locations when view appears
+            .onAppear(perform: fetchLocations)
         }
     }
 
-    // Fetch all locations from API
+    // Fetch locations from API
     private func fetchLocations() {
         APIService.shared.fetchAllLinks { fetchedLinks in
             DispatchQueue.main.async {
@@ -191,14 +188,17 @@ struct DiscoverView: View {
                     self.locations = fetchedLinks.compactMap { link in
                         if let lat = link.location?["lat"], let lng = link.location?["lng"] {
                             return LocationAnnotation(
+                                id: UUID(),
                                 title: link.description ?? "Unknown Location",
-                                coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng)
+                                coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng),
+                                link: link.link,
+                                imageURL: link.imageURL // Add image URL for preview
                             )
                         }
                         return nil
                     }
                     
-                    // Adjust camera to first location if available
+                    // Adjust camera to first location
                     if let firstLocation = self.locations.first {
                         cameraPosition = .region(
                             MKCoordinateRegion(
@@ -213,11 +213,80 @@ struct DiscoverView: View {
     }
 }
 
-// Location Annotation Struct
-struct LocationAnnotation: Identifiable {
-    let id = UUID()
+// MARK: - Location Data Model (Now Equatable)
+struct LocationAnnotation: Identifiable, Equatable {
+    let id: UUID
     let title: String
     let coordinate: CLLocationCoordinate2D
+    let link: String
+    let imageURL: String?
+
+    // Conform to Equatable to fix the animation error
+    static func == (lhs: LocationAnnotation, rhs: LocationAnnotation) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
+// MARK: - Link Preview Overlay
+struct LinkPreviewOverlay: View {
+    let location: LocationAnnotation
+    let onClose: () -> Void
+
+    var body: some View {
+        VStack {
+            VStack {
+                HStack {
+                    AsyncImage(url: URL(string: location.imageURL ?? "https://via.placeholder.com/100")) { image in
+                        image.resizable().scaledToFit()
+                    } placeholder: {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(.gray)
+                    }
+                    .frame(width: 80, height: 80)
+                    .cornerRadius(10)
+
+                    VStack(alignment: .leading) {
+                        Text(location.title)
+                            .font(.headline)
+                        Text(location.link)
+                            .font(.subheadline)
+                            .foregroundColor(.blue)
+                            .lineLimit(1)
+                    }
+                    Spacer()
+                    
+                    Button(action: onClose) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.gray)
+                            .font(.title2)
+                    }
+                }
+                .padding()
+
+                Button(action: {
+                    if let url = URL(string: location.link) {
+                        UIApplication.shared.open(url)
+                    }
+                }) {
+                    Text("Open Link")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .padding(.horizontal)
+            }
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .shadow(radius: 5)
+            .padding()
+        }
+    }
 }
 
 struct FriendsView: View {
