@@ -7,6 +7,38 @@ struct ErrorMessage: Identifiable {
 }
 
 struct ContentView: View {
+    var body: some View {
+        TabView {
+            CollectedSpotsView() // Your existing list logic
+                .tabItem {
+                    Image(systemName: "questionmark.circle")
+                    Text("Now")
+                }
+            
+            DiscoverView()
+                .tabItem {
+                    Image(systemName: "binoculars")
+                    Text("Discover")
+                }
+            
+            FriendsView()
+                .tabItem {
+                    Image(systemName: "bubble")
+                    Text("Friends")
+                }
+            
+            MeView()
+                .tabItem {
+                    Image(systemName: "person.circle")
+                    Text("Me")
+                }
+        }
+        .accentColor(.blue) // Customize tab highlight color
+    }
+}
+
+// Your existing view logic moved into a separate struct
+struct CollectedSpotsView: View {
     @State private var links: [(link: Link, distance: Double)] = [] // Store links with distances
     @State private var errorMessage: ErrorMessage?
     private let notifiedLinksKey = "NotifiedLinks" // Key for UserDefaults storage
@@ -15,24 +47,21 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                // Show only notified links, sorted by proximity
                 ForEach(links, id: \.link.link) { item in
                     Button(action: {
-                        openLink(item.link.link) // Open link in Safari when clicked
+                        openLink(item.link.link)
                     }) {
                         VStack(alignment: .leading) {
-                            // Show description if available; fallback to the link
                             if let description = item.link.description, !description.isEmpty {
                                 Text(description)
                                     .font(.headline)
-                                    .foregroundColor(.blue) // Indicate it is clickable
+                                    .foregroundColor(.blue)
                             } else {
                                 Text(item.link.link)
                                     .font(.headline)
-                                    .foregroundColor(.blue) // Indicate it is clickable
+                                    .foregroundColor(.blue)
                             }
                             
-                            // Show location and distance
                             if let location = item.link.location, let lat = location["lat"], let lng = location["lng"] {
                                 Text("Lat: \(lat), Lng: \(lng)")
                                     .font(.subheadline)
@@ -44,7 +73,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .onDelete(perform: deleteLink) // Enable deletion
+                .onDelete(perform: deleteLink)
             }
             .onAppear(perform: fetchLinks)
             .navigationTitle("Collected Spots")
@@ -54,7 +83,6 @@ struct ContentView: View {
         }
     }
 
-    // Open the link in Safari
     func openLink(_ urlString: String) {
         guard let url = URL(string: urlString) else {
             self.errorMessage = ErrorMessage(message: "Invalid URL: \(urlString)")
@@ -63,9 +91,7 @@ struct ContentView: View {
         UIApplication.shared.open(url)
     }
 
-    // Fetch links from the API and sort them by proximity
     func fetchLinks() {
-        // Request user's location
         locationManager.requestWhenInUseAuthorization()
         guard let userLocation = locationManager.location else {
             self.errorMessage = ErrorMessage(message: "Unable to fetch user location.")
@@ -75,7 +101,6 @@ struct ContentView: View {
         APIService.shared.fetchAllLinks { fetchedLinks in
             DispatchQueue.main.async {
                 if let fetchedLinks = fetchedLinks {
-                    // Calculate distance for each link and sort
                     self.links = fetchedLinks
                         .compactMap { link in
                             if let lat = link.location?["lat"], let lng = link.location?["lng"] {
@@ -85,8 +110,8 @@ struct ContentView: View {
                             }
                             return nil
                         }
-                        .filter { isLinkNotified($0.link.link) } // Show only notified links
-                        .sorted(by: { $0.distance < $1.distance }) // Sort by proximity
+                        .filter { isLinkNotified($0.link.link) }
+                        .sorted(by: { $0.distance < $1.distance })
                 } else {
                     self.errorMessage = ErrorMessage(message: "Failed to fetch links.")
                 }
@@ -94,29 +119,61 @@ struct ContentView: View {
         }
     }
 
-    // Delete a link from the list and remove it from notified links
     func deleteLink(at offsets: IndexSet) {
         offsets.forEach { index in
             let link = links[index].link
-            removeLinkFromNotified(link.link) // Remove from UserDefaults
-            links.remove(at: index) // Remove from UI list
+            removeLinkFromNotified(link.link)
+            links.remove(at: index)
         }
     }
 
-    // MARK: - UserDefaults Helpers
-
-    // Check if a link has already been notified
     private func isLinkNotified(_ link: String) -> Bool {
         let notifiedLinks = UserDefaults.standard.stringArray(forKey: notifiedLinksKey) ?? []
         return notifiedLinks.contains(link)
     }
 
-    // Remove a link from the notified list
     private func removeLinkFromNotified(_ link: String) {
         var notifiedLinks = UserDefaults.standard.stringArray(forKey: notifiedLinksKey) ?? []
         if let index = notifiedLinks.firstIndex(of: link) {
             notifiedLinks.remove(at: index)
-            UserDefaults.standard.set(notifiedLinks, forKey: notifiedLinksKey) // Update UserDefaults
+            UserDefaults.standard.set(notifiedLinks, forKey: notifiedLinksKey)
         }
+    }
+}
+
+struct DiscoverView: View {
+    var body: some View {
+        NavigationView {
+            Text("Discover Screen Coming Soon")
+                .font(.largeTitle)
+                .navigationTitle("Discover")
+        }
+    }
+}
+
+struct FriendsView: View {
+    var body: some View {
+        NavigationView {
+            Text("Friends Screen Coming Soon")
+                .font(.largeTitle)
+                .navigationTitle("Friends")
+        }
+    }
+}
+
+struct MeView: View {
+    var body: some View {
+        NavigationView {
+            Text("Me Screen Coming Soon")
+                .font(.largeTitle)
+                .navigationTitle("Me")
+        }
+    }
+}
+
+// Preview
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
