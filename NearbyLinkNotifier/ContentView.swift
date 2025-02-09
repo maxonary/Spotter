@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreLocation
+import MapKit
 
 struct ErrorMessage: Identifiable {
     let id = UUID()
@@ -142,13 +143,81 @@ struct CollectedSpotsView: View {
 }
 
 struct DiscoverView: View {
+    @State private var locations: [LocationAnnotation] = [] // Store locations
+    
+    @State private var cameraPosition: MapCameraPosition = .region(
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), // Default: San Francisco
+            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        )
+    )
+
     var body: some View {
         NavigationView {
-            Text("Discover Screen Coming Soon")
-                .font(.largeTitle)
-                .navigationTitle("Discover")
+            Map(position: $cameraPosition) {
+                ForEach(locations) { location in
+                    Annotation(location.title, coordinate: location.coordinate) {
+                        VStack {
+                            Image(systemName: "mappin.circle.fill")
+                                .foregroundColor(.red)
+                                .font(.title)
+                            Text(location.title)
+                                .font(.caption)
+                                .padding(5)
+                                .background(Color.white.opacity(0.7))
+                                .cornerRadius(5)
+                        }
+                        .onTapGesture {
+                            cameraPosition = .region(
+                                MKCoordinateRegion(
+                                    center: location.coordinate,
+                                    span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                                )
+                            )
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Discover")
+            .onAppear(perform: fetchLocations) // Fetch locations when view appears
         }
     }
+
+    // Fetch all locations from API
+    private func fetchLocations() {
+        APIService.shared.fetchAllLinks { fetchedLinks in
+            DispatchQueue.main.async {
+                if let fetchedLinks = fetchedLinks {
+                    self.locations = fetchedLinks.compactMap { link in
+                        if let lat = link.location?["lat"], let lng = link.location?["lng"] {
+                            return LocationAnnotation(
+                                title: link.description ?? "Unknown Location",
+                                coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng)
+                            )
+                        }
+                        return nil
+                    }
+                    
+                    // Adjust camera to first location if available
+                    if let firstLocation = self.locations.first {
+                        cameraPosition = .region(
+                            MKCoordinateRegion(
+                                center: firstLocation.coordinate,
+                                span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+                            )
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Location Annotation Struct
+struct LocationAnnotation: Identifiable {
+    let id = UUID()
+    let title: String
+    let coordinate: CLLocationCoordinate2D
 }
 
 struct FriendsView: View {
