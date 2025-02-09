@@ -143,7 +143,7 @@ The Meme Map application is an interactive platform for geolocating and displayi
 ---
 
 ## License
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [Apache 2.0 License](LICENSE).
 
 ---
 
