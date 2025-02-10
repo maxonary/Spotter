@@ -1,6 +1,27 @@
-# Meme Map Application
+# Spotter - Redefine Sightseeing
 
-## Overview
+Turn your digital memories into real-world moments. Share your location, and let Spotter do the rest. Our AI analyzes posts, videos, and images, mapping your digital memories to the places they were captured. As you move through the world, Spotter notifies you when you pass a meaningful spot, letting you relive, reconnect, and rediscover.
+Spotter takes your digital life beyond the screen.
+
+Let’s bring your memories to life.
+
+--- 
+
+## iOS App Overview
+Spotter is a location-based app that allows users to discover and interact with links (e.g., memes, resources) on a map. The app integrates a FastAPI backend and a Streamlit frontend for a seamless user experience.
+
+---
+
+## Features
+
+1. **Map View**: Display links on a map with markers, allowing users to explore links based on location.
+2. **Link Management**: Add, update, and delete links with geolocation data and optional descriptions.
+3. **Location-Based Notifications**: Receive notifications when nearby links are detected.
+4. **Tabbed Interface**: Switch between different views, including a list of collected spots, a discover view, a friends view, and a me view.
+
+--- 
+
+## API and Map Overview
 The Meme Map application is an interactive platform for geolocating and displaying links (e.g., memes, resources) on a map. It integrates a FastAPI backend and a Streamlit frontend for a seamless user experience. The application also supports MongoDB for database storage.
 
 ---
@@ -110,20 +131,6 @@ The Meme Map application is an interactive platform for geolocating and displayi
 
 ---
 
-## Project Structure
-```
-.
-├── api_meme_map.py         # FastAPI backend
-├── meme_map.py             # Streamlit frontend
-├── requirements.txt        # Python dependencies
-├── .streamlit/
-│   └── secrets.toml        # Streamlit secrets configuration
-├── .env                    # Environment variables for FastAPI
-├── README.md               # Project documentation
-```
-
----
-
 ## Contributing
 1. Fork the repository.
 2. Create a feature branch:
@@ -152,4 +159,4 @@ This project is licensed under the [Apache 2.0 License](LICENSE).
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [Nominatim API](https://nominatim.openstreetmap.org/)
-
+  
