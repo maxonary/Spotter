@@ -12,14 +12,14 @@
 			containerPortal = 394A82D72D3C36C000FEA805 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 394A82DE2D3C36C000FEA805;
-			remoteInfo = NearbyLinkNotifier;
+			remoteInfo = Spotter;
 		};
 		394A82FB2D3C36C100FEA805 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 394A82D72D3C36C000FEA805 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 394A82DE2D3C36C000FEA805;
-			remoteInfo = NearbyLinkNotifier;
+			remoteInfo = Spotter;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -126,7 +126,7 @@
 			name = Spotter;
 			packageProductDependencies = (
 			);
-			productName = NearbyLinkNotifier;
+			productName = Spotter;
 			productReference = 394A82DF2D3C36C000FEA805 /* Spotter.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -149,7 +149,7 @@
 			name = SpotterTests;
 			packageProductDependencies = (
 			);
-			productName = NearbyLinkNotifierTests;
+			productName = SpotterTests;
 			productReference = 394A82F02D3C36C100FEA805 /* SpotterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -172,7 +172,7 @@
 			name = SpotterUITests;
 			packageProductDependencies = (
 			);
-			productName = NearbyLinkNotifierUITests;
+			productName = SpotterUITests;
 			productReference = 394A82FA2D3C36C100FEA805 /* SpotterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
