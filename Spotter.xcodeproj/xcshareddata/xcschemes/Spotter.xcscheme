@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "394A82DE2D3C36C000FEA805"
-               BuildableName = "NearbyLinkNotifier.app"
-               BlueprintName = "NearbyLinkNotifier"
-               ReferencedContainer = "container:NearbyLinkNotifier.xcodeproj">
+               BuildableName = "Spotter.app"
+               BlueprintName = "Spotter"
+               ReferencedContainer = "container:Spotter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "394A82EF2D3C36C100FEA805"
-               BuildableName = "NearbyLinkNotifierTests.xctest"
-               BlueprintName = "NearbyLinkNotifierTests"
-               ReferencedContainer = "container:NearbyLinkNotifier.xcodeproj">
+               BuildableName = "SpotterTests.xctest"
+               BlueprintName = "SpotterTests"
+               ReferencedContainer = "container:Spotter.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "394A82F92D3C36C100FEA805"
-               BuildableName = "NearbyLinkNotifierUITests.xctest"
-               BlueprintName = "NearbyLinkNotifierUITests"
-               ReferencedContainer = "container:NearbyLinkNotifier.xcodeproj">
+               BuildableName = "SpotterUITests.xctest"
+               BlueprintName = "SpotterUITests"
+               ReferencedContainer = "container:Spotter.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -69,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "394A82DE2D3C36C000FEA805"
-            BuildableName = "NearbyLinkNotifier.app"
-            BlueprintName = "NearbyLinkNotifier"
-            ReferencedContainer = "container:NearbyLinkNotifier.xcodeproj">
+            BuildableName = "Spotter.app"
+            BlueprintName = "Spotter"
+            ReferencedContainer = "container:Spotter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -86,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "394A82DE2D3C36C000FEA805"
-            BuildableName = "NearbyLinkNotifier.app"
-            BlueprintName = "NearbyLinkNotifier"
-            ReferencedContainer = "container:NearbyLinkNotifier.xcodeproj">
+            BuildableName = "Spotter.app"
+            BlueprintName = "Spotter"
+            ReferencedContainer = "container:Spotter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
