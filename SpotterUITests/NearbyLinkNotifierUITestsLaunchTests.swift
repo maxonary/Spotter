@@ -1,13 +1,6 @@
-//
-//  NearbyLinkNotifierUITestsLaunchTests.swift
-//  NearbyLinkNotifierUITests
-//
-//  Created by Maximilian Arnold on 18.01.25.
-//
-
 import XCTest
 
-final class NearbyLinkNotifierUITestsLaunchTests: XCTestCase {
+final class SpotterUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

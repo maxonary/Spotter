@@ -1,13 +1,6 @@
-//
-//  NearbyLinkNotifierUITests.swift
-//  NearbyLinkNotifierUITests
-//
-//  Created by Maximilian Arnold on 18.01.25.
-//
-
 import XCTest
 
-final class NearbyLinkNotifierUITests: XCTestCase {
+final class SpotterUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
