@@ -1,4 +1,5 @@
 # Spotter - Redefine Sightseeing
+<img width="531" alt="Spotter Logo" src="https://github.com/user-attachments/assets/56000cbd-a825-4552-bdc5-460cefae324f" />
 
 Turn your digital memories into real-world moments. Share your location, and let Spotter do the rest. Our AI analyzes posts, videos, and images, mapping your digital memories to the places they were captured. As you move through the world, Spotter notifies you when you pass a meaningful spot, letting you relive, reconnect, and rediscover.
 Spotter takes your digital life beyond the screen.
